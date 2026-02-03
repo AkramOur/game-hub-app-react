@@ -1,4 +1,3 @@
-import React from "react";
 import useGenres from "../hooks/useGenre";
 
 const GenreList = () => {
