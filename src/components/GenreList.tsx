@@ -7,7 +7,7 @@ import {
   Button,
   Heading,
 } from "@chakra-ui/react";
-import useGenres from "../hooks/useGenre";
+import useGenres from "../hooks/useGenres";
 
 interface Props {
   onSelectGenreId: (genre: number) => void;
