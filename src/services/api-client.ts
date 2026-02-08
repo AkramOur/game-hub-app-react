@@ -1,11 +1,24 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
-export default axios.create({
-    baseURL:'http://localhost:8081/api'
+const apiClient = axios.create({
+  baseURL: "http://localhost:8081/api",
 });
 
-
 export interface FetchResponse<T> {
-  count: number; 
+  count: number;
   results: T[];
+}
+
+export class ApiClient<T> {
+  endpoint: string;
+
+  constructor(endpoint: string) {
+    this.endpoint = endpoint;
+  }
+
+  getAll = (config?: AxiosRequestConfig) => {
+    return apiClient
+      .get<FetchResponse<T>>(this.endpoint, config)
+      .then((res) => res.data);
+  };
 }
