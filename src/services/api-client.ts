@@ -22,4 +22,8 @@ export class ApiClient<T> {
       .get<FetchResponse<T>>(this.endpoint, config)
       .then((res) => res.data);
   };
+
+  getById = (id: number | string) => {
+    return apiClient.get<T>(`${this.endpoint}/${id}`).then((res) => res.data);
+  };
 }
